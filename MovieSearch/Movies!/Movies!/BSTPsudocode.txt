@@ -1,0 +1,95 @@
+add(root, data)
+ if subtree empty
+  insert a new data at root
+  return root
+ end if
+ if data < root
+  add(left subtree, data)
+  if left subtree taller
+   leftbalance(root)
+  end if
+ end if
+ else
+  add(right subtree, newptr)
+  if(right subtree taller)
+   rightBalance(root)
+  end if
+ end if
+ return root
+
+leftBalance(root)
+ if left subtree high
+  rotateRight(root)
+ else
+  rotateLeft(left subtree)
+  rotateRight(root)
+ end if
+
+rightBalance(root)
+ if right subtree high
+  rotateLeft(root)
+ else
+  rotateRight(right subtree)
+  rotateLeft(root)
+ end if
+
+rotateRight(root)
+ exchange left subtree with right subtree of left subtree
+ make left subtree new root
+
+rotateLeft(root)
+ exchange right subtree with left subtree of right subtree
+ make left subtree new root
+
+remove(root, data)
+ if root == nullptr
+  return nullptr
+ end if
+ if (data < root)
+  left subtree = remove(left subtree, data)
+  if (tree shorter)
+   root = deleteRightBalance(root)
+  end if
+ else if (data > root)
+  right subtree = remove(right subtree, data)
+  if(tree shorter)
+   root = deleteLeftBalance(root)
+ else
+  save root
+  if(no right subtree)
+   return left subtree
+  else if (no left subtree)
+   return right subtree
+  else 
+   save largest data of left subtree
+   copy data in largest to root
+   set left subtree to remove(left subtree, largest)
+   if(tree shorter)
+    root = deleteRightBalance(root)
+   end if
+  end if 
+ end if
+ return root
+
+deleteRightBalance(root)
+ if(tree not balanced)
+   right of right = right subtree
+   if (right of right left high)
+    left of right = rotateRight(right of right)
+    root = rotateLeft(root)
+   else 
+    root = rotateLeft(root)
+   end if
+ end if
+
+deleteLeftBalance(root)
+ if(tree not balanced)
+   left of left = left subtree
+   if( left of left right high)
+    right of left = rotateLeft(left of left)
+    root = rotateRight(root)
+   else 
+    root = rotateRight(root)
+   end if
+ end if
+

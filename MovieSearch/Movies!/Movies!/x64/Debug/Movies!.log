@@ -1,0 +1,5 @@
+﻿  Main.cpp
+z:\cis22c-final-project\movies!\movies!\bst.cpp(438): warning C4715: 'operator<<<Movie>': not all control paths return a value
+z:\cis22c-final-project\movies!\movies!\bst.cpp(314): warning C4715: 'BST<Movie>::remove': not all control paths return a value
+  Movies!.vcxproj -> Z:\CIS22C-Final-Project\Movies!\x64\Debug\Movies!.exe
+  Movies!.vcxproj -> Z:\CIS22C-Final-Project\Movies!\x64\Debug\Movies!.pdb (Partial PDB)
